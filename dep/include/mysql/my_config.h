@@ -1,4 +1,4 @@
-/* Copyright (c) 2009, 2017, Oracle and/or its affiliates. All rights reserved.
+/* Copyright (c) 2009, 2018, Oracle and/or its affiliates. All rights reserved.
  
  This program is free software; you can redistribute it and/or modify
  it under the terms of the GNU General Public License as published by
@@ -35,6 +35,7 @@
 /* Header files */
 /* #undef HAVE_ALLOCA_H */
 /* #undef HAVE_ARPA_INET_H */
+/* #undef HAVE_CRYPT_H */
 /* #undef HAVE_DLFCN_H */
 /* #undef HAVE_EXECINFO_H */
 /* #undef HAVE_FPU_CONTROL_H */
@@ -179,7 +180,7 @@
 /* #undef HAVE_UINT */
 /* #undef HAVE_ULONG */
 /* #undef HAVE_U_INT32_T */
-#define HAVE_STRUCT_TIMESPEC
+/* #undef HAVE_STRUCT_TIMESPEC */
 
 /* Support for tagging symbols with __attribute__((visibility("hidden"))) */
 /* #undef HAVE_VISIBILITY_HIDDEN */
@@ -198,6 +199,7 @@
 /* #undef HAVE_GCC_ATOMIC_BUILTINS */
 /* #undef HAVE_GCC_SYNC_BUILTINS */
 /* #undef HAVE_VALGRIND */
+/* #undef HAVE_PTHREAD_THREADID_NP */
 
 /* IPV6 */
 /* #undef HAVE_NETINET_IN6_H */
@@ -233,7 +235,7 @@
 /* #undef ENABLE_MEMCACHED_SASL_PWDB */
 #define ENABLED_PROFILING 1
 /* #undef HAVE_ASAN */
-/* #undef ENABLED_LOCAL_INFILE */
+#define ENABLED_LOCAL_INFILE 1
 #define OPTIMIZER_TRACE 1
 #define DEFAULT_MYSQL_HOME "C:/Program Files/MySQL/MySQL Server 5.7"
 #define SHAREDIR "share"
@@ -387,15 +389,15 @@
 #define DOT_FRM_VERSION 6
 #define MYSQL_VERSION_MAJOR 5
 #define MYSQL_VERSION_MINOR 7
-#define MYSQL_VERSION_PATCH 18
+#define MYSQL_VERSION_PATCH 24
 #define MYSQL_VERSION_EXTRA ""
 #define PACKAGE "mysql"
 #define PACKAGE_BUGREPORT ""
 #define PACKAGE_NAME "MySQL Server"
-#define PACKAGE_STRING "MySQL Server 5.7.18"
+#define PACKAGE_STRING "MySQL Server 5.7.24"
 #define PACKAGE_TARNAME "mysql"
-#define PACKAGE_VERSION "5.7.18"
-#define VERSION "5.7.18"
+#define PACKAGE_VERSION "5.7.24"
+#define VERSION "5.7.24"
 #define PROTOCOL_VERSION 10
 
 /*
