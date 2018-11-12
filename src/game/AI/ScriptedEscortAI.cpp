@@ -192,6 +192,10 @@ void npc_escortAI::JustRespawned()
 
     Reset();
     ResetCreature();
+
+    // Some times escorted mobs bug out and spawn at the end of their escort path.
+    if (CreatureData const *data = sObjectMgr.GetCreatureData(m_creature->GetGUIDLow()))
+        m_creature->NearTeleportTo(data->posX, data->posY, data->posZ, data->orientation);
 }
 
 void npc_escortAI::EnterEvadeMode()
