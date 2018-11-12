@@ -900,6 +900,8 @@ class MANGOS_DLL_SPEC Player final: public Unit
         void AddToWorld();
         void RemoveFromWorld();
 
+        float m_fXPMultiplier = 1.0f;
+
         /* Switch from instanceId of same map.
          * Assumes that you can enter the map.
          * Should be called in a thread-safe environnement (not in map update for example !)
