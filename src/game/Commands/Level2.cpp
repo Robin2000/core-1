@@ -595,7 +595,7 @@ bool ChatHandler::HandleGoCreatureCommand(char* args)
 					name = name.replace(pos, 1, "¡¤");
 				}
                 WorldDatabase.escape_string(name);
-				QueryResult *result = WorldDatabase.PQuery("SELECT guid FROM creature A LEFT JOIN creature_template B ON A.id=B.entry LEFT JOIN locales_creature C ON A.id=C.entry WHERE C.name_loc4 " _LIKE_ " " _CONCAT3_("'%%'", "'%s'", "'%%'") " OR B.name " _LIKE_ " " _CONCAT3_("'%%'", "'%s'", "'%%'"), name.c_str(), name.c_str());
+				QueryResult *result = WorldDatabase.PQuery("SELECT guid FROM creature A LEFT JOIN creature_template B ON A.id=B.entry LEFT JOIN locales_creature C ON A.id=C.entry WHERE C.name_loc4 " _LIKE_ " " _CONCAT3_("'%%'", "'%s'", "'%%'") " OR B.name " _LIKE_ " " _CONCAT3_("'%%'", "'%s'", "'%%'") " order by rand() limit 1", name.c_str(), name.c_str());
                 if (!result)
                 {
                     SendSysMessage(LANG_COMMAND_GOCREATNOTFOUND);
