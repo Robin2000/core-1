@@ -590,10 +590,6 @@ bool ChatHandler::HandleGoCreatureCommand(char* args)
             else
             {
                 std::string name = pParam1;
-				std::string::size_type pos(0);
-				if ((pos = name.find(".")) != std::string::npos) {
-					name = name.replace(pos, 1, "¡¤");
-				}
                 WorldDatabase.escape_string(name);
 				QueryResult *result = WorldDatabase.PQuery("SELECT guid FROM creature A LEFT JOIN creature_template B ON A.id=B.entry LEFT JOIN locales_creature C ON A.id=C.entry WHERE C.name_loc4 " _LIKE_ " " _CONCAT3_("'%%'", "'%s'", "'%%'") " OR B.name " _LIKE_ " " _CONCAT3_("'%%'", "'%s'", "'%%'") " order by rand() limit 1", name.c_str(), name.c_str());
                 if (!result)
@@ -751,7 +747,7 @@ bool ChatHandler::HandleGoObjectCommand(char* args)
             {
                 std::string name = pParam1;
                 WorldDatabase.escape_string(name);
-                QueryResult *result = WorldDatabase.PQuery("SELECT guid FROM gameobject, gameobject_template WHERE gameobject.id = gameobject_template.entry AND gameobject_template.name " _LIKE_ " " _CONCAT3_("'%%'", "'%s'", "'%%'"), name.c_str());
+                QueryResult *result = WorldDatabase.PQuery("SELECT guid FROM gameobject A LEFT JOIN gameobject_template B ON A.id = B.entry LEFT JOIN locales_gameobject C ON A.id = C.entry  WHERE B.name " _LIKE_ " " _CONCAT3_("'%%'", "'%s'", "'%%'") " OR C.name_loc4 " _LIKE_ " " _CONCAT3_("'%%'", "'%s'", "'%%'") , name.c_str(), name.c_str());
                 if (!result)
                 {
                     SendSysMessage(LANG_COMMAND_GOOBJNOTFOUND);
